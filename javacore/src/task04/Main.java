@@ -1,24 +1,17 @@
 package task04;
 
-import task04.io.SizeReader;
-import task04.io.SortAndPrint;
-import task04.person.Person;
-import task04.person.PersonsGenerator;
 
+import task04.logic.ProgramLogic;
 
 public class Main {
     public static void main(String[] args) {
 
-        //Считываем с консоли размер массива
 
+        // создаем экземпляр класса с логикой программы и запускаем ее
 
-        int size = SizeReader.readSize();
+        ProgramLogic programLogic = new ProgramLogic();
+        programLogic.start();
 
-        //Генерируем массив, длины size
-        Person[] persons = PersonsGenerator.generation(size);
-
-        //Передаем массив для сортировки и вывода на экран
-        SortAndPrint.sortAndPrintArray(persons);
 
 
     }

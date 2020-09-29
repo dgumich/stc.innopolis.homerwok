@@ -35,9 +35,9 @@ public class PersonsGenerator {
 
                 //имена случайно выбираем из массивов имен. Генерируем случайны возраст в диапазоне от 1 до 100.
 
-                result[i] = new Person(manNames[(int)(random.nextDouble() * manNames.length)], true, ((int)(random.nextDouble() * 100) + 1));
+                result[i] = new Person(manNames[random.nextInt(manNames.length)], true, (random.nextInt(100)  + 1));
             } else {
-                result[i] = new Person(womanNames[(int)(random.nextDouble() * womanNames.length)], false, ((int)(random.nextDouble() * 100) + 1));
+                result[i] = new Person(womanNames[random.nextInt(womanNames.length)], false, (random.nextInt(100)  + 1));
             }
 
         }

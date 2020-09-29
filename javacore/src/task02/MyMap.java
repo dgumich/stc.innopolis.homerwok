@@ -8,6 +8,7 @@ import java.util.Objects;
  * Тип ключа и данных - Object.
  */
 
+
 class MyMap {
 
     /**
@@ -189,27 +190,13 @@ class MyMap {
      */
 
     public Object get(Object key) {
-        Node e;
-        return (e = getNode(hash(key), key)) == null ? null : e.value;
-    }
 
-
-    /**
-     * Метод принимает значение ключа, по которому будет происходить поиск и значение его хэша.
-     * На основании хэша ключа и длины массива table вычисляется индекс, в котором должны находиться данные с таким ключаом.
-     * Происходит проверка массива с данным индексом. В случае, если ячейка пустая - возращается null.
-     * Если в ячейке есть объект/объекты Node, происходит сравнение их ключей и хэша с переданным ключом. В случаи совпадения
-     * возращается объект типа Node.
-     * @param keyHash хэш ключа, типа int
-     * @param key ключ, по которому происходит поиск, тип Object
-     * @return возращаемый объект Node в случаи совпадения ключей
-     */
-
-    public Node getNode(int keyHash, Object key) {
+        int keyHash = hash(key);
 
         // вычисление номера ячейки и проверка на пустоту.
 
         int index = keyHash & (table.length - 1);
+
         if (table[index] == null) {
             return null;
         } else {
@@ -219,13 +206,13 @@ class MyMap {
             Node current = table[index];
             Node next = current.next;
             if (keyHash == current.hash && current.key.equals(key)) {
-                return current;
+                return current.value;
             } else {
                 while (next != null) {
                     current = next;
                     next = current.next;
                     if (keyHash == current.hash && current.key.equals(key)) {
-                        return current;
+                        return current.value;
                     }
                 }
 
@@ -233,7 +220,10 @@ class MyMap {
 
         }
         return null;
+
     }
+
+
 
 
     /**

@@ -21,21 +21,10 @@ public class SecondSorter implements Sorter  {
 
     @Override
     public Person[] sort(Person[] persons, Comparator<Person> comparator) {
+
         Person temp;
-        boolean sorted = true;
         for (int i = 0; i < persons.length; i++) {
 
-            // в процессе сортировки выводится информация о количестве пройденного массива
-
-            if (i == persons.length / 4) {
-                System.out.println("Working... 25% is done");
-            }
-            if (i == persons.length / 2) {
-                System.out.println("Working... 50% is done");
-            }
-            if (i == (persons.length * 3) / 4) {
-                System.out.println("Working... 75% is done");
-            }
             for (int j = i + 1; j < persons.length; j++) {
 
                 if (comparator.compare(persons[i],persons[j]) > 0) {
@@ -47,4 +36,6 @@ public class SecondSorter implements Sorter  {
         }
         return persons;
     }
+
+
 }

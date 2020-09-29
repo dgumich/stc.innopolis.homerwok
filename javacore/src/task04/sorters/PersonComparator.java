@@ -33,7 +33,7 @@ public class PersonComparator implements Comparator<Person> {
      *           После чего проверяет данные объекты сначала по параметру sex, затем по name и по age.
      *           В случае полного совпадения выбрасывается UserException, который тут же перехватывается и сохраняется
      *           в HashSet exception
-     * @return
+     * @return возращает значение типа int.
      */
     @Override
     public int compare(Person o1, Person o2) {
